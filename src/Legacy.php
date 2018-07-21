@@ -2,8 +2,7 @@
 
     class main {
         function _construct() {
-            ech "hoge";
+            echo "hoge";
             $hoge = "hoge";
-        }   
-    } 
-
+        }
+    }
