@@ -1,0 +1,13 @@
+{
+    "name": "mac/circleci",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "phpmd/phpmd": "2.4.3"
+    },
+    "config": {
+    "platform": {
+        "php": "5.3.3"
+    }
+}
+}

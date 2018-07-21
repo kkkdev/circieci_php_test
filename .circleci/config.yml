@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: tomsowerby/php-5.3-composer
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: composer install
+
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
+
+      # syntax check
+      - run: find ./src -name "*.php" | xargs -n1 php -l
+      # php mess detector
+      - run: ./vendor/bin/phpmd src text cleancode,codesize,controversial,design,naming,unusedcode
