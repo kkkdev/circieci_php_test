@@ -1,8 +1,8 @@
 <?php
 
-    class main {
-        function _construct() {
+    class MAIN {
+        public function tes() {
             echo "hoge";
-            $hoge = "hoge";
+            //$hoge = "hoge";
         }
     }
